@@ -61,29 +61,29 @@ public partial class ShopCard : Card
         var tween2 = CreateTween();
         tween2.TweenProperty(itemImg, "modulate", new Color(1, 1, 1, 1), 0.5f);
 
-        // var tween3 = CreateTween();
-        // tween3.TweenProperty(this, "global_position", new Vector2(355, 0), 0.5f)
-        // .SetTrans(Tween.TransitionType.Expo)
-        // .SetEase(Tween.EaseType.Out).Finished += () =>
-        // {
-        //     GD.Print("购买3");
-        //     ShopCardDeck.Visible = true;
-        //     var tween4 = CreateTween();
-        //     tween4.TweenProperty(ShopCardDeck, "size", new Vector2(1565, 360), 0.3f)
-        //     .SetTrans(Tween.TransitionType.Expo)
-        //     .SetEase(Tween.EaseType.Out).Finished += () =>
-        //     {
-        //         GD.Print("购买4");
-        //         //隐藏中间的牌桌以放置商店需要卖的卡牌
-        //         GlobalManager.GetMidDeck().Visible = false;
-        //         var dio = DialogueManager.ShowDialogueBalloonScene(GameNormalScene.ShopBalloon,
-        //         ResourceLoader.Load<Resource>(GameNormalScene.ShopNPC1)) as DialogueBalloon;
-        //         dio.npcCard = this;
-        //         GD.Print("开始对话");
-        //     };
-        // };
-        // await ToSignal(tween3, "finished");
-        // GD.Print("购买5");
+        var tween3 = CreateTween();
+        tween3.TweenProperty(this, "global_position", new Vector2(355, 0), 0.5f)
+        .SetTrans(Tween.TransitionType.Expo)
+        .SetEase(Tween.EaseType.Out).Finished += () =>
+        {
+            GD.Print("购买3");
+            ShopCardDeck.Visible = true;
+            var tween4 = CreateTween();
+            tween4.TweenProperty(ShopCardDeck, "size", new Vector2(1565, 360), 0.3f)
+            .SetTrans(Tween.TransitionType.Expo)
+            .SetEase(Tween.EaseType.Out).Finished += () =>
+            {
+                GD.Print("购买4");
+                //隐藏中间的牌桌以放置商店需要卖的卡牌
+                GlobalManager.GetMidDeck().Visible = false;
+                var dio = DialogueManager.ShowDialogueBalloonScene(GameNormalScene.ShopBalloon,
+                ResourceLoader.Load<Resource>(GameNormalScene.ShopNPC1)) as DialogueBalloon;
+                dio.npcCard = this;
+                GD.Print("开始对话");
+            };
+        };
+        await ToSignal(tween3, "finished");
+        GD.Print("购买5");
     }
 
     public void ShowDia(string diaName)
