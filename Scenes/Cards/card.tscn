@@ -1,0 +1,127 @@
+[gd_scene load_steps=7 format=3 uid="uid://npxhdbb8udhm"]
+
+[ext_resource type="Texture2D" uid="uid://ckp4135t0skf8" path="res://Assets/icon.svg" id="1_ivai2"]
+[ext_resource type="Script" uid="uid://6spp3tqcc1ae" path="res://Scripts/Cards/Card.cs" id="1_nwofj"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4k7q8"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwofj"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f61jr"]
+draw_center = false
+
+[sub_resource type="Theme" id="Theme_4k7q8"]
+Button/styles/focus = SubResource("StyleBoxFlat_4k7q8")
+Button/styles/hover = SubResource("StyleBoxFlat_nwofj")
+Button/styles/normal = SubResource("StyleBoxFlat_f61jr")
+
+[node name="Control" type="Control" node_paths=PackedStringArray("pickButton", "allButton", "control", "colorRect", "nameLabel", "itemImg")]
+custom_minimum_size = Vector2(240, 340)
+layout_mode = 3
+anchor_top = 0.027
+anchor_bottom = 0.027
+offset_top = -29.16
+offset_right = 240.0
+offset_bottom = 310.84
+size_flags_horizontal = 4
+script = ExtResource("1_nwofj")
+pickButton = NodePath("Button")
+allButton = NodePath("allButton")
+control = NodePath("Control")
+colorRect = NodePath("Control/ColorRect")
+nameLabel = NodePath("Control/ColorRect/name")
+itemImg = NodePath("Control/ColorRect/itemImg")
+
+[node name="Control" type="Panel" parent="."]
+custom_minimum_size = Vector2(220, 317)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0416667
+anchor_top = 0.0338235
+anchor_right = 0.958333
+anchor_bottom = 0.966176
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="itemImg" type="TextureRect" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -107.0
+offset_right = 61.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ivai2")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="name" type="Label" parent="Control/ColorRect"]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = 194.0
+offset_right = 32.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "你的卡牌"
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(220, 317)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0416667
+anchor_top = 0.0338235
+anchor_right = 0.958333
+anchor_bottom = 0.966176
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_4k7q8")
+metadata/_edit_use_anchors_ = true
+
+[node name="allButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 13.0
+offset_top = 14.0
+offset_right = 66.0
+offset_bottom = 45.0
+text = "*1"

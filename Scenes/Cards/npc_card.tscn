@@ -1,0 +1,112 @@
+[gd_scene load_steps=8 format=3 uid="uid://dcmfbl8phrmgw"]
+
+[ext_resource type="Script" uid="uid://bg7xlmexht2ah" path="res://Scripts/Cards/NpcCard.cs" id="1_k6xor"]
+[ext_resource type="Texture2D" uid="uid://fmkehcmr2yhg" path="res://Assets/ComfyUI_00027_.png" id="2_22185"]
+[ext_resource type="Texture2D" uid="uid://bgjsojmn3woiy" path="res://Assets/npc.png" id="3_jx7s6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k6xor"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_22185"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jx7s6"]
+draw_center = false
+
+[sub_resource type="Theme" id="Theme_4k7q8"]
+Button/styles/focus = SubResource("StyleBoxFlat_k6xor")
+Button/styles/hover = SubResource("StyleBoxFlat_22185")
+Button/styles/normal = SubResource("StyleBoxFlat_jx7s6")
+
+[node name="npcCard" type="Control" node_paths=PackedStringArray("SiteImg", "pickButton", "control", "nameLabel", "itemImg")]
+custom_minimum_size = Vector2(240, 340)
+layout_mode = 3
+anchor_top = 0.027
+anchor_bottom = 0.027
+offset_top = -29.16
+offset_right = 240.0
+offset_bottom = 310.84
+size_flags_horizontal = 4
+script = ExtResource("1_k6xor")
+SiteImg = NodePath("Control/siteImg")
+pickButton = NodePath("Button")
+control = NodePath("Control")
+nameLabel = NodePath("nameLabel")
+itemImg = NodePath("Control/npcImg")
+
+[node name="Control" type="Panel" parent="."]
+custom_minimum_size = Vector2(220, 317)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0416667
+anchor_top = 0.0338235
+anchor_right = 0.958333
+anchor_bottom = 0.966176
+metadata/_edit_use_anchors_ = true
+
+[node name="siteImg" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_22185")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="npcImg" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -212.0
+offset_right = 212.0
+grow_vertical = 0
+texture = ExtResource("3_jx7s6")
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(220, 317)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0416667
+anchor_top = 0.0338235
+anchor_right = 0.958333
+anchor_bottom = 0.966176
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_4k7q8")
+
+[node name="nameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 68.0
+offset_top = -41.0
+offset_right = -59.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0

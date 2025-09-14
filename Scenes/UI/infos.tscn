@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6hfmatmkudkn"]
+
+[ext_resource type="Script" uid="uid://d2yhidgmcbjin" path="res://Scripts/UI/Infos.cs" id="1_vf5wr"]
+[ext_resource type="PackedScene" uid="uid://de4fi35cljtn0" path="res://Scenes/Deck/hand_deck.tscn" id="2_aovss"]
+[ext_resource type="Script" uid="uid://d2uk0xabfmpi7" path="res://Scripts/Menu/Option.cs" id="3_0xubi"]
+
+[node name="infos" type="CanvasLayer" node_paths=PackedStringArray("HandDeck", "MoneyLabel")]
+visible = false
+script = ExtResource("1_vf5wr")
+HandDeck = NodePath("handeck")
+MoneyLabel = NodePath("moneyLabel")
+
+[node name="handeck" parent="." groups=["cardDropable", "saveableDeck"] instance=ExtResource("2_aovss")]
+custom_minimum_size = Vector2(0, 360)
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1565.0
+offset_top = -360.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="option" type="Button" parent="."]
+offset_left = 39.0
+offset_top = 121.0
+offset_right = 200.0
+offset_bottom = 194.0
+text = "选项"
+script = ExtResource("3_0xubi")
+
+[node name="moneyLabel" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 22.0
+offset_right = 282.0
+offset_bottom = 94.0
+theme_override_font_sizes/font_size = 50
+text = "10000"

@@ -1,0 +1,162 @@
+[gd_scene load_steps=7 format=3 uid="uid://bqjg66bfyctk4"]
+
+[ext_resource type="Script" uid="uid://cwxe6epw5747s" path="res://Scripts/Cards/ShopItemCard.cs" id="1_upf50"]
+[ext_resource type="Texture2D" uid="uid://b483q0dnsvtya" path="res://CardImg/rat.png" id="2_upf50"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4k7q8"]
+bg_color = Color(0.9, 0.9, 0.9, 1)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nwofj"]
+bg_color = Color(1, 1, 1, 1)
+draw_center = false
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.8, 0.8, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f61jr"]
+draw_center = false
+
+[sub_resource type="Theme" id="Theme_4k7q8"]
+Button/styles/focus = SubResource("StyleBoxFlat_4k7q8")
+Button/styles/hover = SubResource("StyleBoxFlat_nwofj")
+Button/styles/normal = SubResource("StyleBoxFlat_f61jr")
+
+[node name="Card" type="Control" node_paths=PackedStringArray("pickButton", "control", "colorRect", "nameLabel", "itemImg")]
+custom_minimum_size = Vector2(240, 340)
+layout_mode = 3
+anchor_top = 0.027
+anchor_bottom = 0.027
+offset_top = -29.16
+offset_right = 240.0
+offset_bottom = 310.84
+size_flags_horizontal = 4
+script = ExtResource("1_upf50")
+pickButton = NodePath("Button")
+control = NodePath("Control")
+colorRect = NodePath("Control/VBoxContainer/ColorRect")
+nameLabel = NodePath("Control/VBoxContainer/ColorRect/name")
+itemImg = NodePath("Control/VBoxContainer/ColorRect/itemImg")
+
+[node name="Control" type="Panel" parent="."]
+custom_minimum_size = Vector2(220, 317)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0416667
+anchor_top = 0.0338235
+anchor_right = 0.958333
+anchor_bottom = 0.966176
+metadata/_edit_use_anchors_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="Control/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+color = Color(0.46, 0.46, 0.46, 0.231373)
+metadata/_edit_use_anchors_ = true
+
+[node name="itemImg" type="TextureRect" parent="Control/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.402
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -35.0
+offset_top = -36.934
+offset_right = 27.0
+offset_bottom = -5.99998
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_upf50")
+expand_mode = 1
+
+[node name="name" type="Label" parent="Control/VBoxContainer/ColorRect"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -31.0
+offset_top = -157.5
+offset_right = 33.0
+offset_bottom = -134.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+text = "卡牌名称"
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="discription" type="Label" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.99999
+offset_top = 161.5
+offset_right = 1.99998
+offset_bottom = -40.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+custom_minimum_size = Vector2(220, 317)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 9.0
+offset_right = -12.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_4k7q8")
+metadata/_edit_use_anchors_ = true
+
+[node name="price" type="Label" parent="."]
+layout_mode = 0
+offset_left = 26.0
+offset_top = 294.0
+offset_right = 66.0
+offset_bottom = 317.0
+text = "售价："
+
+[node name="price2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 89.0
+offset_top = 294.0
+offset_right = 129.0
+offset_bottom = 317.0
+text = "100"

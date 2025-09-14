@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://brs22wd2bwa8a"]
+
+[ext_resource type="Script" uid="uid://ujt476xpii2e" path="res://Scripts/Deck/ChangeAdleDeck.cs" id="1_tdp2s"]
+[ext_resource type="Script" uid="uid://20ksuenb0b0c" path="res://Scripts/Cards/Delete.cs" id="2_44fuv"]
+
+[node name="deck" type="Panel" node_paths=PackedStringArray("getAllButton", "compressedButton", "deleteButton", "cardDeck", "cardPoiDeck", "weightLabel", "progressBar") groups=["cardDeck", "cardDropable"]]
+custom_minimum_size = Vector2(1650, 360)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_tdp2s")
+getAllButton = NodePath("Panel/getAll")
+compressedButton = NodePath("Panel/compressed")
+deleteButton = NodePath("Panel/delete")
+cardDeck = NodePath("cardDeck")
+cardPoiDeck = NodePath("ScrollContainer/cardPoiDeck")
+weightLabel = NodePath("weight")
+progressBar = NodePath("ProgressBar")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cardPoiDeck" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="cardDeck" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -93.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0242424
+anchor_right = -0.0030303
+anchor_bottom = 1.0
+grow_vertical = 2
+fill_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="weight" type="Label" parent="."]
+layout_mode = 0
+offset_left = -111.0
+offset_top = 4.0
+offset_right = -37.0
+offset_bottom = 39.0
+text = "0/100"
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -92.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="getAll" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
+offset_left = 7.0
+offset_top = 16.0
+offset_right = 77.0
+offset_bottom = 86.0
+text = "全拿"
+
+[node name="compressed" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
+offset_left = 9.0
+offset_top = 135.0
+offset_right = 79.0
+offset_bottom = 205.0
+toggle_mode = true
+text = "紧凑"
+
+[node name="delete" type="Button" parent="Panel"]
+custom_minimum_size = Vector2(70, 70)
+layout_mode = 0
+offset_left = 10.0
+offset_top = 255.0
+offset_right = 80.0
+offset_bottom = 325.0
+text = "删除"
+script = ExtResource("2_44fuv")

@@ -1,0 +1,62 @@
+[gd_scene load_steps=4 format=3 uid="uid://bytgp5t2id57o"]
+
+[ext_resource type="Script" uid="uid://clruk2mo5yc8q" path="res://Scripts/UI/Main.cs" id="1_uc8wk"]
+[ext_resource type="PackedScene" uid="uid://2i6vtiywy7rn" path="res://Scenes/Deck/deck.tscn" id="2_jryh6"]
+[ext_resource type="Script" uid="uid://jpk210guravp" path="res://Scripts/UI/GoToButton.cs" id="3_2st71"]
+
+[node name="site2" type="Node2D" node_paths=PackedStringArray("Scene1", "Scene2")]
+script = ExtResource("1_uc8wk")
+Scene1 = NodePath("deck")
+Scene2 = NodePath("deck2")
+MaxRandomItemNum = 5
+MinRandomItemNum2 = 2
+SiteItem = Dictionary[String, int]({
+"Ice": 1,
+"npc_1": 3
+})
+
+[node name="deck" parent="." instance=ExtResource("2_jryh6")]
+custom_minimum_size = Vector2(0, 0)
+offset_left = 355.0
+offset_right = 1920.0
+offset_bottom = 360.0
+defaultCards = Array[String]([])
+
+[node name="deck2" parent="." groups=["midDeck"] instance=ExtResource("2_jryh6")]
+custom_minimum_size = Vector2(0, 0)
+offset_left = 355.0
+offset_top = 360.0
+offset_right = 1920.0
+offset_bottom = 720.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 66.0
+offset_top = 486.0
+offset_right = 253.0
+offset_bottom = 663.0
+theme_override_font_sizes/font_size = 72
+text = "抽卡
+"
+
+[node name="goToButton" type="Button" parent="."]
+offset_left = 25.0
+offset_top = 198.0
+offset_right = 281.0
+offset_bottom = 321.0
+theme_override_font_sizes/font_size = 52
+text = "前往site1"
+script = ExtResource("3_2st71")
+ScenePath = "res://Scenes/site/site1.tscn"
+
+[node name="Label" type="Label" parent="goToButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 18.0
+offset_top = 187.0
+offset_right = -196.0
+offset_bottom = 87.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "当前在Site2"

@@ -1,0 +1,152 @@
+[gd_scene load_steps=3 format=3 uid="uid://ul80vwvl6drr"]
+
+[ext_resource type="Script" uid="uid://o0os2uoi8lxm" path="res://Scripts/Menu/PauseMenu.cs" id="1_8ipe3"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y2c35"]
+
+[node name="PauseMenu" type="CanvasLayer" node_paths=PackedStringArray("SavePanel", "SaveContainer", "BackToGame", "QuickSave", "SaveList", "ExitGame", "SaveNewButton", "BackButton")]
+process_mode = 3
+layer = 13
+visible = false
+script = ExtResource("1_8ipe3")
+SavePanel = NodePath("savePanel")
+SaveContainer = NodePath("savePanel/ScrollContainer/VBoxContainer")
+BackToGame = NodePath("Panel2/backToGame")
+QuickSave = NodePath("Panel2/quickSave")
+SaveList = NodePath("Panel2/saveList")
+ExitGame = NodePath("Panel2/exitGame")
+SaveNewButton = NodePath("savePanel/saveNewButton")
+BackButton = NodePath("savePanel/backButton")
+
+[node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0.466667)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = 12.0
+offset_right = 13.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="."]
+custom_minimum_size = Vector2(500, 500)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -200.0
+offset_right = 250.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="backToGame" type="Button" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -169.0
+offset_top = 36.0
+offset_right = 169.0
+offset_bottom = 122.0
+grow_horizontal = 2
+text = "返回游戏"
+
+[node name="quickSave" type="Button" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -169.0
+offset_top = 152.0
+offset_right = 169.0
+offset_bottom = 238.0
+grow_horizontal = 2
+text = "快速保存"
+
+[node name="saveList" type="Button" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -166.0
+offset_top = 256.0
+offset_right = 172.0
+offset_bottom = 342.0
+grow_horizontal = 2
+text = "存档列表"
+
+[node name="exitGame" type="Button" parent="Panel2"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -162.0
+offset_top = 361.0
+offset_right = 176.0
+offset_bottom = 447.0
+grow_horizontal = 2
+text = "退出游戏"
+
+[node name="savePanel" type="Panel" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -275.0
+offset_right = 250.0
+offset_bottom = 275.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_y2c35")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="savePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 45.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="savePanel/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="savePanel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -247.0
+offset_top = 7.0
+offset_right = -169.0
+offset_bottom = 30.0
+grow_horizontal = 2
+text = "存档列表"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="saveNewButton" type="Button" parent="savePanel"]
+layout_mode = 0
+offset_left = 411.0
+offset_top = 6.0
+offset_right = 439.0
+offset_bottom = 37.0
+text = "新"
+
+[node name="backButton" type="Button" parent="savePanel"]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 6.0
+offset_right = 482.0
+offset_bottom = 37.0
+text = "X"

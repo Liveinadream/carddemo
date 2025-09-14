@@ -1,0 +1,52 @@
+[gd_scene load_steps=2 format=3 uid="uid://ced3wy8wmrfxv"]
+
+[ext_resource type="Script" uid="uid://d0anowakouff" path="res://Scripts/Deck/ShopCardDeck.cs" id="1_htbmj"]
+
+[node name="shopCardDeck" type="Panel" node_paths=PackedStringArray("cardDeck", "cardPoiDeck", "weightLabel", "progressBar") groups=["cardDeck"]]
+custom_minimum_size = Vector2(1650, 360)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_htbmj")
+cardDeck = NodePath("cardDeck")
+cardPoiDeck = NodePath("ScrollContainer/cardPoiDeck")
+weightLabel = NodePath("weight")
+progressBar = NodePath("ProgressBar")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cardPoiDeck" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="cardDeck" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.0242424
+anchor_right = -0.0030303
+anchor_bottom = 1.0
+grow_vertical = 2
+fill_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="weight" type="Label" parent="."]
+layout_mode = 0
+offset_left = -111.0
+offset_top = 4.0
+offset_right = -37.0
+offset_bottom = 39.0
+text = "0/100"
