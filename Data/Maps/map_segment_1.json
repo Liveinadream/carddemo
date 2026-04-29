@@ -1,0 +1,39 @@
+{
+  "SegmentId": 1,
+  "SegmentName": "初学者森林",
+  "Nodes": [
+    {
+      "Id": 0,
+      "NodeType": "Battle",
+      "Position": { "x": 100, "y": 500 },
+      "ConnectedNodes": [1, 2],
+      "IsVisited": false,
+      "EventId": "battle_slime"
+    },
+    {
+      "Id": 1,
+      "NodeType": "Shop",
+      "Position": { "x": 300, "y": 400 },
+      "ConnectedNodes": [3],
+      "IsVisited": false,
+      "EventId": "forest_shop"
+    },
+    {
+      "Id": 2,
+      "NodeType": "Event",
+      "Position": { "x": 300, "y": 600 },
+      "ConnectedNodes": [3],
+      "IsVisited": false,
+      "EventId": "mystery_chest"
+    },
+    {
+      "Id": 3,
+      "NodeType": "Exit",
+      "Position": { "x": 500, "y": 500 },
+      "ConnectedNodes": [],
+      "IsVisited": false,
+      "EventId": "next_segment"
+    }
+  ],
+  "NextSegmentId": 2
+}

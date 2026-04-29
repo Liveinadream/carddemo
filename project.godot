@@ -8,22 +8,33 @@
 
 config_version=5
 
+[animation]
+
+compatibility/default_parent_skeleton_in_mesh_instance_3d=true
+
 [application]
 
 config/name="cardDemo"
+config/version="0.0.1"
 run/main_scene="uid://w6rb6r7fplrg"
-config/features=PackedStringArray("4.5", "C#", "GL Compatibility")
+config/features=PackedStringArray("4.6", "C#", "GL Compatibility")
 config/icon="res://Assets/icon.svg"
 
 [autoload]
 
+NetworkManager="*res://Scripts/Baselib/Network/NetworkManager.cs"
 CardManager="*res://Scripts/Cards/CardManager.cs"
 VfSlayer="*res://Scenes/UI/VFSlayer.tscn"
 Infos="*res://Scenes/UI/infos.tscn"
 GlobalManager="*res://Scripts/General/GlobalManager.cs"
 PauseMenu="*res://Scenes/Menu/pause_menu.tscn"
-DialogueManager="*res://Addons/dialogue_manager/dialogue_manager.gd"
+DialogueManager="*uid://c3rodes2l3gxb"
 NpcManager="*res://Scripts/NPC/NPCManager.cs"
+UIManager="*res://Scripts/Baselib/UIManager.cs"
+ResLoader="*res://Scripts/Baselib/ResLoader.cs"
+StorageManager="*res://Scripts/Baselib/StorageManager.cs"
+EventBus="*res://Scripts/Baselib/EventBus.cs"
+MapManager="*res://Scripts/Map/MapManager.cs"
 
 [dialogue_manager]
 
@@ -59,3 +70,7 @@ locale/translations_pot_files=PackedStringArray("res://Dialogue/dialogue.dialogu
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+
+[threading]
+
+worker_pool/max_threads=8

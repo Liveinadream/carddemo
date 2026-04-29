@@ -1,5 +1,6 @@
 using Godot;
 using System;
+using CardDemo.Data;
 
 public partial class PauseMenu : CanvasLayer
 {

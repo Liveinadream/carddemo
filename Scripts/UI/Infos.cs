@@ -2,6 +2,7 @@ using Godot;
 using Godot.Collections;
 using System;
 using System.Linq;
+using CardDemo.Data;
 
 public partial class Infos : CanvasLayer
 {

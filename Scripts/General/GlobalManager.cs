@@ -3,12 +3,8 @@ using Godot.Collections;
 using System;
 using System.Linq;
 
-public partial class GlobalManager : Node
+public partial class GlobalManager : Singleton<GlobalManager>
 {
-
-    // 单例实例
-    public static GlobalManager Instance { get; private set; }
-
     // 全局场景引用
     public CanvasLayer VfSlayer { get; private set; }
     public Infos Infos { get; private set; }
@@ -21,8 +17,7 @@ public partial class GlobalManager : Node
 
     public override void _Ready()
     {
-        // 设置单例
-        Instance = this;
+        base._Ready();
         // 在调试模式下执行校验
         if (OS.IsDebugBuild() && _enableDebugChecks)
         {
@@ -34,6 +29,12 @@ public partial class GlobalManager : Node
         if (VfSlayer == null)
         {
             GD.PrintErr("Failed to find VFSLayer node");
+            VfSlayer = new CanvasLayer
+            {
+                Name = GameNormalScene.GlobalVfsPlayer,
+                Layer = 100
+            };
+            GetTree().Root.CallDeferred("add_child", VfSlayer);
         }
 
         Infos = GetTree().Root.FindChild(GameNormalScene.GlobalInfos, true, false) as Infos;
@@ -52,6 +53,15 @@ public partial class GlobalManager : Node
             GD.PrintErr("Failed to find NPCManager node");
         }
 
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        if (@event is InputEventKey keyEvent && keyEvent.Pressed && !keyEvent.Echo && keyEvent.Keycode == Key.R&& OS.IsDebugBuild())
+        {
+            RestartGame();
+            GetViewport().SetInputAsHandled();
+        }
     }
 
     // 调试校验方法
@@ -203,8 +213,23 @@ public partial class GlobalManager : Node
     // 场景导航方法
     public static void GotoSite1() => GotoSceneByUid(GameNormalScene.Site1SceneUid);
     public static void GotoSite2() => GotoSceneByUid(GameNormalScene.Site2SceneUid);
+    public static void GotoMapScreen() => GotoSceneByPath(GameNormalScene.MapScreenScene);
     public static void GotoStartScreen() => GotoSceneByUid(GameNormalScene.StartScreenSceneUid);
     public static void GotoNameScreen() => GotoSceneByUid(GameNormalScene.NameScreenSceneUid);
 
+    public static void RestartGame()
+    {
+        if (Instance == null)
+        {
+            GD.PrintErr("GlobalManager instance not found");
+            return;
+        }
+        var tree = Instance.GetTree();
+        if (tree != null)
+        {
+            tree.ReloadCurrentScene();
+        }
+    }
+ 
     
 }

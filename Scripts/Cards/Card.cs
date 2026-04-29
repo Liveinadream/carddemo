@@ -37,6 +37,9 @@ public partial class Card : Control
     [Export]
     public int num = 1;
 
+    // 事件：当卡牌被点击时触发
+    public event Action Clicked;
+
     // 是否可以删除
     public bool del;
 
@@ -106,6 +109,8 @@ public partial class Card : Control
 
     public virtual void OnButtonDown()
     {
+        Clicked?.Invoke();
+
         if(CardCurrentState != CardState.Following){
             return;
         }
@@ -239,6 +244,12 @@ public partial class Card : Control
     public virtual void EscDialogue()
     {
         
+    }
+
+    internal void Setup(CardData data)
+    {
+        cardInfo = data;
+        DrawCard();
     }
 }
 

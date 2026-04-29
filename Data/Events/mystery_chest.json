@@ -1,0 +1,19 @@
+{
+  "EventId": "mystery_chest",
+  "EventName": "神秘宝箱",
+  "Description": "你发现了一个神秘的宝箱，里面似乎有东西。",
+  "Cards": [
+    {
+      "CardName": "Ice",
+      "Count": 1
+    },
+    {
+      "CardName": "Iron_ore",
+      "Count": 1
+    },
+    {
+      "CardName": "Magnesium_ore",
+      "Count": 1
+    }
+  ]
+}

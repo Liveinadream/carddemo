@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://ccstx3u5wj0p0"]
+
+[ext_resource type="Script" uid="uid://dq6rh5mp3e0p4" path="res://Scripts/Map/MapNode.cs" id="1_script"]
+
+[node name="MapNode" type="Control" unique_id=1824263869 node_paths=PackedStringArray("_button", "_label")]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 126.0
+offset_bottom = 122.0
+script = ExtResource("1_script")
+_button = NodePath("Button")
+_label = NodePath("Button/Label")
+
+[node name="Button" type="Button" parent="." unique_id=1020151320]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Button" unique_id=824738173]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Node"
+horizontal_alignment = 1
+vertical_alignment = 1

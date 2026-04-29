@@ -9,7 +9,7 @@ public partial class GameNormalScene
 {
 
     // 全局变量
-    public const string GlobalVfsPlayer = "VfSlayer";
+    public const string GlobalVfsPlayer = "VFSLayer";
     public const string GlobalInfos = "Infos";
     public const string GlobalPauseMenu = "PauseMenu";
     public const string GlobalNPCManager = "NpcManager";
@@ -33,6 +33,8 @@ public partial class GameNormalScene
     public const string NameScreenScene = "res://Scenes/UI/name_screen.tscn"; 
     public const string Site1Scene = "res://Scenes/Site/site1.tscn";
     public const string Site2Scene = "res://Scenes/Site/site2.tscn";
+    public const string MapScreenScene = "res://Scenes/Map/map_screen.tscn";
+    public const string EventScene = "res://Scenes/Event/event_scene.tscn";
 
     // 使用UID引用的场景
     public const string StartScreenSceneUid = "uid://w6rb6r7fplrg";

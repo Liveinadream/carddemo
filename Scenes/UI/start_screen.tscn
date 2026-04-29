@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://w6rb6r7fplrg"]
+[gd_scene format=3 uid="uid://w6rb6r7fplrg"]
 
 [ext_resource type="Script" uid="uid://1br47pg2rnwq" path="res://Scripts/UI/StartScreen.cs" id="1_yfcvk"]
 
-[node name="Control" type="Control" node_paths=PackedStringArray("StartGame", "LoadGame")]
+[node name="Control" type="Control" unique_id=1581818892 node_paths=PackedStringArray("StartGame", "LoadGame", "GotoMap")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -12,8 +12,9 @@ grow_vertical = 2
 script = ExtResource("1_yfcvk")
 StartGame = NodePath("StartGame")
 LoadGame = NodePath("LoadGame")
+GotoMap = NodePath("GotoMap")
 
-[node name="LoadGame" type="Button" parent="."]
+[node name="LoadGame" type="Button" parent="." unique_id=1577376564]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -29,7 +30,7 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 52
 text = "继续游戏"
 
-[node name="StartGame" type="Button" parent="."]
+[node name="StartGame" type="Button" parent="." unique_id=1054185386]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -44,3 +45,19 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 52
 text = "新游戏"
+
+[node name="GotoMap" type="Button" parent="." unique_id=1862795157]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -215.0
+offset_top = -200.0
+offset_right = 218.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 52
+text = "进入地图"

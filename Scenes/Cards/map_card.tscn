@@ -1,0 +1,60 @@
+[gd_scene format=3 uid="uid://b5eluuj7ex7y"]
+
+[ext_resource type="Script" uid="uid://6dbldgljy5pc" path="res://Scripts/Cards/MapCard.cs" id="1_7w0ev"]
+[ext_resource type="Texture2D" uid="uid://ckp4135t0skf8" path="res://Assets/icon.svg" id="2_65m65"]
+
+[node name="MapNode" type="Control" unique_id=735246257]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_7w0ev")
+
+[node name="Control" type="Panel" parent="." unique_id=1313519060]
+custom_minimum_size = Vector2(220, 317)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.0416667
+anchor_top = 0.0338235
+anchor_right = 0.958333
+anchor_bottom = 0.966176
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="Control" unique_id=1184150521]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="itemImg" type="TextureRect" parent="Control/ColorRect" unique_id=2059560033]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.0
+offset_top = -107.0
+offset_right = 61.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_65m65")
+expand_mode = 1
+stretch_mode = 3
+
+[node name="name" type="Label" parent="Control/ColorRect" unique_id=700686263]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.0
+offset_top = 194.0
+offset_right = 32.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "你的卡牌"

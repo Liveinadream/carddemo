@@ -1,0 +1,31 @@
+{
+  "SegmentId": 2,
+  "SegmentName": "幽暗洞穴",
+  "Nodes": [
+    {
+      "Id": 0,
+      "NodeType": "Event",
+      "Position": { "x": 100, "y": 500 },
+      "ConnectedNodes": [1],
+      "IsVisited": false,
+      "EventId": "mystery_chest"
+    },
+    {
+      "Id": 1,
+      "NodeType": "Battle",
+      "Position": { "x": 300, "y": 500 },
+      "ConnectedNodes": [2],
+      "IsVisited": false,
+      "EventId": "battle_slime"
+    },
+    {
+      "Id": 2,
+      "NodeType": "Exit",
+      "Position": { "x": 500, "y": 500 },
+      "ConnectedNodes": [],
+      "IsVisited": false,
+      "EventId": "next_segment"
+    }
+  ],
+  "NextSegmentId": 1
+}
